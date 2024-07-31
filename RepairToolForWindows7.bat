@@ -1,16 +1,16 @@
 @echo off
-echo "ClassIsland ä¿®å¤å·¥å…· (é€‚ç”¨äºŽ Windows 7 ç‰ˆæœ¬)"
+echo "ClassIsland ÐÞ¸´¹¤¾ß (ÊÊÓÃÓÚ Windows 7 °æ±¾)"
 if exist "%SystemRoot%\SysWOW64" path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0
 bcdedit >nul
 if '%errorlevel%' NEQ '0' (goto UACPrompt) else (goto UACAdmin)
 :UACPrompt
-echo "æ­£åœ¨è¯·æ±‚ç®¡ç†å‘˜æƒé™..."
+echo "ÕýÔÚÇëÇó¹ÜÀíÔ±È¨ÏÞ..."
 %1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit
 exit /B
 :UACAdmin
 setx "DOTNET_GCName" "clrgc.dll" /m
 setx "DOTNET_EnableWriteXorExecute" "0" /m
-echo "ä¿®å¤å®Œæˆï¼"
-echo "æŒ‰ä»»æ„é”®é€€å‡º..."
+echo "ÐÞ¸´Íê³É£¡"
+echo "°´ÈÎÒâ¼üÍË³ö..."
 pause >nul
 exit
